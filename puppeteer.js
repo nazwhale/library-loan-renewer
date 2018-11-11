@@ -4,7 +4,7 @@ require('dotenv').config();
 const puppeteer = require('puppeteer');
 const moment = require('moment');
 
-const DAYS_SOON = 5;
+const DAYS_SOON = 7;
 const LIBRARY_WEBSITE = "https://capitadiscovery.co.uk/islington/account";
 
 
@@ -58,9 +58,9 @@ const LIBRARY_WEBSITE = "https://capitadiscovery.co.uk/islington/account";
 
   dueSoon.sort(sortNumbers)
 
-  console.log(`Loans oustanding: ${dueDates.length}`);
+  console.log(`Loans oustanding:   ${dueDates.length}`);
   console.log(`Due in next ${DAYS_SOON} days: ${dueSoon.length}`)
-  console.log(`Soonest due: ${dueSoon[0] || 'n/a'} days\n`)
+  console.log(`Soonest due:        ${dueSoon[0] || 'n/a'} days\n`)
 
 
   // if one has reached max renewals, log it
