@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
 
   // enter deets
   await page.type('#borrowerBarcodeTextBox', '20120007905567');
-  await page.type('#pinTextBox', '1991');
+  await page.type('#pinTextBox', '');
 
   // login
   await page.evaluate( () =>
