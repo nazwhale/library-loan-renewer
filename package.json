@@ -1,0 +1,9 @@
+{
+  "name": "library-renewer",
+  "version": "1.0.0",
+  "main": "puppeteer.js",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.10.0"
+  }
+}
