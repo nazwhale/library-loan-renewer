@@ -1,3 +1,4 @@
+require('dotenv').config();
 const puppeteer = require('puppeteer');
 
 (async () => {
@@ -6,8 +7,8 @@ const puppeteer = require('puppeteer');
   await page.goto('https://capitadiscovery.co.uk/islington/account');
 
   // enter deets
-  await page.type('#borrowerBarcodeTextBox', '20120007905567');
-  await page.type('#pinTextBox', '');
+  await page.type('#borrowerBarcodeTextBox', process.env.BORROWER_BARCODE);
+  await page.type('#pinTextBox', process.env.PIN);
 
   // login
   await page.evaluate( () =>
