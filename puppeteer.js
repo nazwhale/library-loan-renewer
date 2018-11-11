@@ -63,13 +63,30 @@ const LIBRARY_WEBSITE = "https://capitadiscovery.co.uk/islington/account";
   console.log(`Soonest due:        ${dueSoon[0] || 'n/a'} days\n`)
 
 
+  // Get renew counts from html
+  const renewCounts = await page.evaluate(() => {
+    return Array.from( document.getElementsByClassName('accRenews')).map(a => a.innerText) 
+  });
+  renewCounts.shift() // drop the header
+
+  const renewCountsArray = []
+
+  renewCounts.forEach(d => {
+    d = d.replace('\t', '')
+    renewCountsArray.push(Number(d))
+  })
+
+  renewCountsArray.sort(sortNumbers)
+  const highestRenewals = renewCountsArray.slice(-1)[0] 
+
+  console.log(`Highest renew count: ${highestRenewals || n/a} times\n`)
+
   // if one has reached max renewals, log it
   // loans.each((l) => l.)
 
   // prompt to renew y/n
   // renew all that can be renewed
   // await page.click()
-
 
   await page.screenshot({path: 'screenshots/loans.png'});
 
