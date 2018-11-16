@@ -40,6 +40,7 @@ const LIBRARY_WEBSITE = "https://capitadiscovery.co.uk/islington/account";
 
   // Output loans due soon
   let dueSoon = []
+  let due = []
 
   dueDates.forEach(d => {
     d = d.replace('\t', '')
@@ -54,13 +55,15 @@ const LIBRARY_WEBSITE = "https://capitadiscovery.co.uk/islington/account";
     if (daysTillDue < DAYS_SOON) {
       dueSoon.push(daysTillDue)
     }
+    due.push(daysTillDue)
   })
 
   dueSoon.sort(sortNumbers)
+  due.sort(sortNumbers)
 
-  console.log(`Loans oustanding:   ${dueDates.length}`);
-  console.log(`Due in next ${DAYS_SOON} days: ${dueSoon.length}`)
-  console.log(`Soonest due:        ${dueSoon[0] || 'n/a'} days\n`)
+  console.log(`Loans oustanding:   ${dueDates.length} loans`);
+  console.log(`Due in next ${DAYS_SOON} days: ${dueSoon.length} loans`)
+  console.log(`Soonest due:        ${due[0] || 'n/a'} days\n`)
 
 
   // Get renew counts from html
@@ -87,6 +90,9 @@ const LIBRARY_WEBSITE = "https://capitadiscovery.co.uk/islington/account";
   // prompt to renew y/n
   // renew all that can be renewed
   // await page.click()
+  
+  
+  // check if reserved by someone else
 
   await page.screenshot({path: 'screenshots/loans.png'});
 
