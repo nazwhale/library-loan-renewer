@@ -6,6 +6,6 @@
   "dependencies": {
     "dotenv": "^6.1.0",
     "moment": "^2.22.2",
-    "puppeteer": "^1.10.0"
+    "puppeteer": "^1.13.0"
   }
 }
